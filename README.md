@@ -3,9 +3,9 @@
 ### How to run and compile
 1. Compile
   javac ILS.java
-2. Run
-  java ILS
-OR
+2. Run\
+  java ILS\
+OR\
 Import the jar file to your IDE and compile and run it there.
 
 ### User Input
@@ -13,8 +13,8 @@ Import the jar file to your IDE and compile and run it there.
 At runtime, the program will prompt for:
 1. Seed value
   Any integer value for reproducibility
-2. Path to the folder containing instance files
-  Example:
+2. Path to the folder containing instance files\
+  Example:\
     C:\Users\john\OneDrive\Documents\Knapsack Instances
 
 Notes:
