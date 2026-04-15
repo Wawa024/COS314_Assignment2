@@ -1,7 +1,7 @@
 # COS314_Assignment2
 ## Iterated Local Search (ILS) for the 0/1 Knapsack Problem
 ### How to run and compile
-1. Compile
+1. Compile\
   javac ILS.java
 2. Run\
   java ILS\
