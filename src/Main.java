@@ -2,6 +2,7 @@ import java.io.File;
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.print("Enter seed value: ");
@@ -18,30 +19,57 @@ public class Main {
 
         Arrays.sort(listOfFiles);
 
-        System.out.println("\n" + "=".repeat(85));
-        System.out.printf("%-25s | %-10s | %-15s | %-10s%n", "Problem Instance", "Seed", "Best Solution", "Runtime(s)");
-        System.out.println("-".repeat(85));
+        int w = 100;
+        System.out.println("\n" + "=".repeat(w));
+        System.out.printf("%-26s | %-5s | %-10s | %-15s | %-10s%n",
+                "Problem Instance", "Algo", "Seed", "Best Solution", "Runtime(s)");
+        System.out.println("-".repeat(w));
 
         for (File file : listOfFiles) {
             if (file.isDirectory() || file.getName().startsWith(".")) continue;
 
+            String name = file.getName();
+
             try {
                 KnapsackData data = readInstance(file.getPath());
 
-                long startTime = System.currentTimeMillis();
-                GeneticAlgorithm ga = new GeneticAlgorithm(data.items, data.capacity, seed);
-                int result = ga.runAndReturnBest();
-                long endTime = System.currentTimeMillis();
+                // ---- ILS ----
+                ILS.numItems = data.items.size();
+                ILS.capacity = data.capacity;
+                ILS.weights = new double[data.items.size()];
+                ILS.values = new double[data.items.size()];
+                for (int i = 0; i < data.items.size(); i++) {
+                    ILS.weights[i] = data.items.get(i).weight;
+                    ILS.values[i] = data.items.get(i).value;
+                }
+                ILS.rng = new Random(seed);
 
-                double duration = (endTime - startTime) / 1000.0;
-                System.out.printf("%-25s | %-10d | %-15d | %-10.3f%n",
-                        file.getName(), seed, result, duration);
+                long ilsStart = System.currentTimeMillis();
+                int[] ilsBest = ILS.iteratedLocalSearch();
+                long ilsEnd = System.currentTimeMillis();
+                double ilsValue = ILS.fitness(ilsBest);
+                double ilsRuntime = (ilsEnd - ilsStart) / 1000.0;
+
+                // ---- GA ----
+                long gaStart = System.currentTimeMillis();
+                GeneticAlgorithm ga = new GeneticAlgorithm(data.items, data.capacity, seed);
+                int gaResult = ga.runAndReturnBest();
+                long gaEnd = System.currentTimeMillis();
+                double gaRuntime = (gaEnd - gaStart) / 1000.0;
+
+                // ---- Print side by side ----
+                System.out.printf("%-26s | %-5s | %-10d | %-15.2f | %-10.3f%n",
+                        name, "ILS", seed, ilsValue, ilsRuntime);
+                System.out.printf("%-26s | %-5s | %-10d | %-15.2f | %-10.3f%n",
+                        name, "GA", seed, (double) gaResult, gaRuntime);
+                System.out.println("-".repeat(w));
 
             } catch (Exception e) {
-                System.out.printf("%-25s | Error: %s%n", file.getName(), e.getMessage());
+                System.out.printf("%-26s | Error: %s%n", name, e.getMessage());
             }
         }
-        System.out.println("=".repeat(85));
+
+        System.out.println("=".repeat(w));
     }
 
     static class KnapsackData {
@@ -59,25 +87,21 @@ public class Main {
         fileScanner.useLocale(Locale.US);
         List<Double> allNumbers = new ArrayList<>();
 
-        // read everything as a double to handle potential decimals
         while (fileScanner.hasNext()) {
             if (fileScanner.hasNextDouble()) {
                 allNumbers.add(fileScanner.nextDouble());
             } else {
-                fileScanner.next(); // Skip non-numeric junk
+                fileScanner.next();
             }
         }
         fileScanner.close();
 
         if (allNumbers.size() < 2) throw new Exception("Insufficient data in file");
 
-        // cast to int for logic
         int numItems = allNumbers.get(0).intValue();
         int capacity = allNumbers.get(1).intValue();
         List<Item> items = new ArrayList<>();
-
         int numbersRemaining = allNumbers.size() - 2;
-
 
         if (numbersRemaining >= numItems * 3) {
             for (int i = 0; i < numItems; i++) {
@@ -99,4 +123,3 @@ public class Main {
         return new KnapsackData(capacity, items);
     }
 }
-

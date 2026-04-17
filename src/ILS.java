@@ -7,10 +7,10 @@ import java.util.*;
 /**
  * Iterated Local Search (ILS) for the 0/1 Knapsack Problem
  * COS314 - Assignment 2
- *
+
  * HOW TO COMPILE:  javac ILS.java
  * HOW TO RUN:      java ILS
- *
+
  * At runtime the program will ask for:
  *   1. A seed value
  *   2. The path to the folder containing the problem instance files

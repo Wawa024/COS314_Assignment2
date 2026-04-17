@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fbc6f0f-9d95-4299-8057-36afccaa12aa" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/data/f10_l-d_kp_20_879" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f1_l-d_kp_10_269" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f2_l-d_kp_20_878" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f3_l-d_kp_4_20" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f4_l-d_kp_4_11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f5_l-d_kp_15_375" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f6_l-d_kp_10_60" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f7_l-d_kp_7_50" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f8_l-d_kp_23_10000" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/f9_l-d_kp_5_80" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/knapPI_1_100_1000_1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GeneticAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ILS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +33,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Wawa024/COS314_Assignment2.git",
-    "accountId": "0ecf6b68-666d-4162-b5f0-22730f5da105"
+    "accountId": "8722b7a6-7aac-4c2e-97ed-71694301acc9"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -61,6 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ILS.executor": "Run",
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -70,6 +59,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -90,7 +80,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
